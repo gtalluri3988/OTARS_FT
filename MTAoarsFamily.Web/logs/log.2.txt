@@ -1,0 +1,54 @@
+[20250926 07:50:28] Agency Principal List 
+[20250926 07:50:28] AP.ID: 385785, AP.AgencyID: 7, AP.CompanyID: 1, AP.AgencyNumber: MTA-G93361, AP.MemberID: 117201, AP.TypeID: 1 
+[20250926 07:50:28] Agency Principal History List 
+[20250926 07:50:28] agencyPrincipalPairAgencyMembers List 
+[20250926 07:50:28] AP.ID: 385785, AM.ID: 117213 
+[20250926 07:50:28] agencyPrincipalHistoryPairAgencyMembers List 
+[20250926 07:50:28] apQuery List 
+[20250926 07:50:28] AP.ID: 385785, AP.AgencyID: 7, AP.AgencyNumber: MTA-G93361, AP.CompanyID: 1, am.Member.ID: 117201, AP.LookupAgencyType.ID: 1, am.LookupDesignation.Description: Corporate Nominee 
+[20250926 07:50:28] aphQuery List 
+[20250926 07:50:28] list (after Union) 
+[20250926 07:50:28] AP.ID: 385785, AP.AgencyID: 7, AP.AgencyNumber: MTA-G93361, AP.CompanyID: 1, am.Member.ID: 117201, AP.LookupAgencyType.ID: 1, am.LookupDesignation.Description: Corporate Nominee 
+[20250926 07:51:01] Agency Principal List 
+[20250926 07:51:01] AP.ID: 385785, AP.AgencyID: 7, AP.CompanyID: 1, AP.AgencyNumber: MTA-G93361, AP.MemberID: 117201, AP.TypeID: 1 
+[20250926 07:51:01] Agency Principal History List 
+[20250926 07:51:01] agencyPrincipalPairAgencyMembers List 
+[20250926 07:51:01] AP.ID: 385785, AM.ID: 117213 
+[20250926 07:51:01] agencyPrincipalHistoryPairAgencyMembers List 
+[20250926 07:51:01] apQuery List 
+[20250926 07:51:01] AP.ID: 385785, AP.AgencyID: 7, AP.AgencyNumber: MTA-G93361, AP.CompanyID: 1, am.Member.ID: 117201, AP.LookupAgencyType.ID: 1, am.LookupDesignation.Description: Corporate Nominee 
+[20250926 07:51:01] aphQuery List 
+[20250926 07:51:01] list (after Union) 
+[20250926 07:51:01] AP.ID: 385785, AP.AgencyID: 7, AP.AgencyNumber: MTA-G93361, AP.CompanyID: 1, am.Member.ID: 117201, AP.LookupAgencyType.ID: 1, am.LookupDesignation.Description: Corporate Nominee 
+[20250926 07:51:13] System.Web.HttpException (0x80004005): The controller for path '/.well-known/appspecific/com.chrome.devtools.json' was not found or does not implement IController.
+   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   at System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) EXCEPTION OCCURRED:System.Web.HttpException The controller for path '/.well-known/appspecific/com.chrome.devtools.json' was not found or does not implement IController. System.Web.Mvc.IController GetControllerInstance(System.Web.Routing.RequestContext, System.Type)
+[20250926 07:51:13] Error Page... 
+[20250926 07:51:14] System.Web.HttpException (0x80004005): The controller for path '/Scripts/kendo.web.min.js.map' was not found or does not implement IController.
+   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   at System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) EXCEPTION OCCURRED:System.Web.HttpException The controller for path '/Scripts/kendo.web.min.js.map' was not found or does not implement IController. System.Web.Mvc.IController GetControllerInstance(System.Web.Routing.RequestContext, System.Type)
+[20250926 07:51:14] Error Page... 

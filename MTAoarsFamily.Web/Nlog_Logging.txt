@@ -1,0 +1,133 @@
+[20251211 14:14:58] AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+String -> LookupItem
+System.String -> MTAoars.Utilities.Mvc.LookupItem
+
+Destination path:
+RegistrationIndexViewModel.M2Exam.M2Exam
+
+Source value:
+Exempted
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.Mappers.TypeMapObjectMapperRegistry.PropertyMapMappingStrategy.MapPropertyValue(ResolutionContext context, IMappingEngineRunner mapper, Object mappedObject, PropertyMap propertyMap)
+   at AutoMapper.Mappers.TypeMapObjectMapperRegistry.PropertyMapMappingStrategy.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   at AutoMapper.Mappers.TypeMapMapper.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.MappingEngine.Map(Object source, Type sourceType, Type destinationType, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at MTAoars.Services.Operations.UploadService.AddRegistration(RegistrationExcelViewModel input) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Operations\UploadService.cs:line 92
+   at MTAoars.Services.Operations.UploadService.UploadRegistration(ExcelList`1 items) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Operations\UploadService.cs:line 71
+   at MTAoars.Web.Controllers.UploadController.RegistrationFile(ExcelList`1 registrationList) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Web\Controllers\UploadController.cs:line 66
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+String -> LookupItem
+System.String -> MTAoars.Utilities.Mvc.LookupItem
+
+Destination path:
+RegistrationIndexViewModel.M2Exam.M2Exam
+
+Source value:
+Exempted System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+[20251211 14:15:02] Error Page... 
+[20251211 14:15:08] Error Page... 
+[20251211 14:34:08] No Agency Found for IC No# : 8.60E+11 
+[20251211 14:34:46] System.NullReferenceException: Object reference not set to an instance of an object.
+   at MTAoars.Validators.Operations.MemberTBEValidator.<Validate>d__6.MoveNext() in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Validators\Operations\MemberTBEValidator.cs:line 39
+   at System.Linq.Enumerable.<SelectManyIterator>d__17`2.MoveNext()
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MTAoars.Services.Shared.BaseService.Validate[T](T item, Boolean omitMessages) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Shared\BaseService.cs:line 58
+   at MTAoars.Services.Operations.RegistrationService.Check(RegistrationIndexViewModel model) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Operations\RegistrationService.cs:line 55
+   at MTAoars.Services.Operations.UploadService.AddRegistration(RegistrationExcelViewModel input) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Operations\UploadService.cs:line 93
+   at MTAoars.Services.Operations.UploadService.UploadRegistration(ExcelList`1 items) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Operations\UploadService.cs:line 71
+   at MTAoars.Web.Controllers.UploadController.RegistrationFile(ExcelList`1 registrationList) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Web\Controllers\UploadController.cs:line 66
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) EXCEPTION OCCURRED:System.NullReferenceException Object reference not set to an instance of an object. Boolean MoveNext()
+[20251211 14:34:52] Error Page... 
+[20251211 14:37:44] No Agency Found for IC No# : 8.60E+11 
+[20251211 14:37:49] System.NullReferenceException: Object reference not set to an instance of an object.
+   at MTAoars.Validators.Operations.MemberTBEValidator.<Validate>d__6.MoveNext() in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Validators\Operations\MemberTBEValidator.cs:line 39
+   at System.Linq.Enumerable.<SelectManyIterator>d__17`2.MoveNext()
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MTAoars.Services.Shared.BaseService.Validate[T](T item, Boolean omitMessages) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Shared\BaseService.cs:line 58
+   at MTAoars.Services.Operations.RegistrationService.Check(RegistrationIndexViewModel model) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Operations\RegistrationService.cs:line 55
+   at MTAoars.Services.Operations.UploadService.AddRegistration(RegistrationExcelViewModel input) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Operations\UploadService.cs:line 93
+   at MTAoars.Services.Operations.UploadService.UploadRegistration(ExcelList`1 items) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Services\Operations\UploadService.cs:line 71
+   at MTAoars.Web.Controllers.UploadController.RegistrationFile(ExcelList`1 registrationList) in D:\SrikanthPilla\ExWork\MTAoars\MTAoars.Web\Controllers\UploadController.cs:line 66
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) EXCEPTION OCCURRED:System.NullReferenceException Object reference not set to an instance of an object. Boolean MoveNext()
+[20251211 14:37:49] Error Page... 

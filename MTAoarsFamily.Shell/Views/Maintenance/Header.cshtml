@@ -1,0 +1,9 @@
+ @using MTAoarsFamily.Utilities.Mvc
+  @using MTAoarsFamily.ViewModels.Interfaces
+ @model MTAoarsFamily.ViewModels.Operations.RegistrationViewModel
+            
+            @if(Model is IExistableAgency)
+            {
+                <li><a href="#agency">Agency</a></li> 
+            }
+ <li><a href="#nominee">Nominee</a></li> 

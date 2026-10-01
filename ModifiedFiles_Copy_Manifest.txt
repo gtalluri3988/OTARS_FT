@@ -1,0 +1,31 @@
+Only changed files for the Family/General registration validation fix.
+Destination root: D:\SrikanthPilla\ExWork\MTAoarsFamily
+
+[FT - Family Takaful]
+Source root: D:\SrikanthPilla\ExWork\MTAoarsFamily
+Staging folder: .\FT
+
+Relative path                                                                 | Complete source path                                                                                                      | Copy destination relative path
+MTAoarsFamily.Services\Operations\RegistrationService.cs                    | D:\SrikanthPilla\ExWork\MTAoarsFamily\MTAoarsFamily.Services\Operations\RegistrationService.cs                    | FT\MTAoarsFamily.Services\Operations\RegistrationService.cs
+MTAoarsFamily.Services\Shared\BaseService.cs                                | D:\SrikanthPilla\ExWork\MTAoarsFamily\MTAoarsFamily.Services\Shared\BaseService.cs                                | FT\MTAoarsFamily.Services\Shared\BaseService.cs
+MTAoarsFamily.Web\Controllers\RegistrationController.cs                     | D:\SrikanthPilla\ExWork\MTAoarsFamily\MTAoarsFamily.Web\Controllers\RegistrationController.cs                     | FT\MTAoarsFamily.Web\Controllers\RegistrationController.cs
+MTAoarsFamily.Shell\Controllers\RegistrationController.cs                   | D:\SrikanthPilla\ExWork\MTAoarsFamily\MTAoarsFamily.Shell\Controllers\RegistrationController.cs                   | FT\MTAoarsFamily.Shell\Controllers\RegistrationController.cs
+MTAoarsFamily.Validators\Operations\MemberIntermediaryTypeValidator.cs      | D:\SrikanthPilla\ExWork\MTAoarsFamily\MTAoarsFamily.Validators\Operations\MemberIntermediaryTypeValidator.cs      | FT\MTAoarsFamily.Validators\Operations\MemberIntermediaryTypeValidator.cs
+MTAoarsFamily.Validators\Operations\MemberCompanyValidator.cs              | D:\SrikanthPilla\ExWork\MTAoarsFamily\MTAoarsFamily.Validators\Operations\MemberCompanyValidator.cs              | FT\MTAoarsFamily.Validators\Operations\MemberCompanyValidator.cs
+MTAoarsFamily.Validators\Operations\RegistrationViewModelMemberCompanyValidator.cs | D:\SrikanthPilla\ExWork\MTAoarsFamily\MTAoarsFamily.Validators\Operations\RegistrationViewModelMemberCompanyValidator.cs | FT\MTAoarsFamily.Validators\Operations\RegistrationViewModelMemberCompanyValidator.cs
+MTAoarsFamily.Validators\Operations\RegistrationInclusionViewModelMemberCompanyValidator.cs | D:\SrikanthPilla\ExWork\MTAoarsFamily\MTAoarsFamily.Validators\Operations\RegistrationInclusionViewModelMemberCompanyValidator.cs | FT\MTAoarsFamily.Validators\Operations\RegistrationInclusionViewModelMemberCompanyValidator.cs
+MTAoarsFamily.Validators\MTAoarsFamily.Validators.csproj                    | D:\SrikanthPilla\ExWork\MTAoarsFamily\MTAoarsFamily.Validators\MTAoarsFamily.Validators.csproj                    | FT\MTAoarsFamily.Validators\MTAoarsFamily.Validators.csproj
+
+[GT - General Takaful]
+Source root: D:\SrikanthPilla\ExWork\MTAoarsGeneral
+Staging folder: .\GT
+
+Relative path                                                                    | Complete source path                                                                                                                 | Copy destination relative path
+MTAoarsGeneral.Services\Operations\RegistrationService.cs                      | D:\SrikanthPilla\ExWork\MTAoarsGeneral\MTAoarsGeneral.Services\Operations\RegistrationService.cs                      | GT\MTAoarsGeneral.Services\Operations\RegistrationService.cs
+MTAoarsGeneral.Services\Shared\BaseService.cs                                  | D:\SrikanthPilla\ExWork\MTAoarsGeneral\MTAoarsGeneral.Services\Shared\BaseService.cs                                  | GT\MTAoarsGeneral.Services\Shared\BaseService.cs
+MTAoarsGeneral.Web\Controllers\RegistrationController.cs                       | D:\SrikanthPilla\ExWork\MTAoarsGeneral\MTAoarsGeneral.Web\Controllers\RegistrationController.cs                       | GT\MTAoarsGeneral.Web\Controllers\RegistrationController.cs
+MTAoarsGeneral.Shell\Controllers\RegistrationController.cs                     | D:\SrikanthPilla\ExWork\MTAoarsGeneral\MTAoarsGeneral.Shell\Controllers\RegistrationController.cs                     | GT\MTAoarsGeneral.Shell\Controllers\RegistrationController.cs
+MTAoarsGeneral.Validators\Operations\MemberIntermediaryTypeValidator.cs       | D:\SrikanthPilla\ExWork\MTAoarsGeneral\MTAoarsGeneral.Validators\Operations\MemberIntermediaryTypeValidator.cs       | GT\MTAoarsGeneral.Validators\Operations\MemberIntermediaryTypeValidator.cs
+MTAoarsGeneral.Validators\Operations\MemberCompanyValidator.cs               | D:\SrikanthPilla\ExWork\MTAoarsGeneral\MTAoarsGeneral.Validators\Operations\MemberCompanyValidator.cs               | GT\MTAoarsGeneral.Validators\Operations\MemberCompanyValidator.cs
+MTAoarsGeneral.Validators\Operations\RegistrationInclusionViewModelMemberCompanyValidator.cs | D:\SrikanthPilla\ExWork\MTAoarsGeneral\MTAoarsGeneral.Validators\Operations\RegistrationInclusionViewModelMemberCompanyValidator.cs | GT\MTAoarsGeneral.Validators\Operations\RegistrationInclusionViewModelMemberCompanyValidator.cs
+MTAoarsGeneral.Validators\MTAoarsGeneral.Validators.csproj                      | D:\SrikanthPilla\ExWork\MTAoarsGeneral\MTAoarsGeneral.Validators\MTAoarsGeneral.Validators.csproj                      | GT\MTAoarsGeneral.Validators\MTAoarsGeneral.Validators.csproj

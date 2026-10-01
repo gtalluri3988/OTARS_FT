@@ -1,0 +1,18 @@
+ @using MTAoarsFamily.Utilities.Mvc
+  @using MTAoarsFamily.ViewModels.Interfaces
+ @model MTAoarsFamily.ViewModels.Operations.RegistrationViewModel
+            
+      
+            @if(Model is IExistableAgency)
+            {
+               @TabHelper.DisplayPage("agency",
+                              () => Html.PartialFor(model => model.Agency, "Agency"),
+                         0,false)     
+            }
+           
+     @TabHelper.DisplayPage("nominee", 
+                              () => Html.PartialFor(model => model.CorporateNominee, "CorporateNominee"),
+                       Model is IExistableAgency?1:0,
+                        false)          
+         
+               
