@@ -64,6 +64,11 @@ namespace MTAoarsFamily.Web {
             Response.Headers.Add("Pragma", "no-cache");
             Response.Headers.Add("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0");
         }
+        protected void Application_PostAcquireRequestState(Object sender, EventArgs e)
+        {
+            // PCI DSS idle (15 min) and absolute session timeouts; expired sessions are sent to SSOUrl.
+            SessionTimeoutManager.Enforce(Context);
+        }
         protected void Application_Start()
         {
             logger.Info("Application_Start: application starting up.");
