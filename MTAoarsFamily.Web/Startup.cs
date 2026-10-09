@@ -16,6 +16,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using MTAoarsFamily.Utilities.Managers;
@@ -25,14 +26,16 @@ namespace MTAoarsFamily.Web
     public class Startup
     {
 
+        // Finding 1: combines a 15-minute idle timeout with a non-renewable 60-minute absolute timeout.
+        private const string AbsoluteSessionExpiryClaimType = "mta:absolute_session_expiry_utc_ticks";
+        private static readonly TimeSpan IdleSessionTimeout = TimeSpan.FromMinutes(15);
+        private static readonly TimeSpan AbsoluteSessionTimeout = TimeSpan.FromMinutes(60);
+
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         public void Configuration(IAppBuilder app)
         {
             logger.Info("Startup run.");
-            // Log the resolved SSO/environment config so we can tell a bad deployment config apart from a login failure.
-            logger.Info("SSO config -> Authority: {0}, SSOAuthBaseUri: {1}, RedirectUri: {2}, SSOUrl: {3}",
-                AppSettings.Authority, AppSettings.SSOAuthBaseUri, AppSettings.RedirectUri, AppSettings.SSOUrl);
 
             //AntiForgeryConfig.UniqueClaimTypeIdentifier = Constants.ClaimTypes.Subject;
             JwtSecurityTokenHandler.InboundClaimTypeMap = new Dictionary<string, string>();
@@ -52,13 +55,34 @@ namespace MTAoarsFamily.Web
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "Cookies"
+                //,
+                //// Finding 1: activity can renew the idle timeout, but never the absolute-expiry claim below.
+                //ExpireTimeSpan = IdleSessionTimeout,
+                //SlidingExpiration = true,
+                //Provider = new CookieAuthenticationProvider
+                //{
+                //    OnValidateIdentity = context =>
+                //    {
+                //        // Finding 1: reject missing, malformed, and expired session tickets server-side.
+                //        var expiryClaim = context.Identity.FindFirst(AbsoluteSessionExpiryClaimType);
+                //        long expiryTicks;
+                //        if (expiryClaim == null ||
+                //            !long.TryParse(expiryClaim.Value, NumberStyles.Integer, CultureInfo.InvariantCulture, out expiryTicks) ||
+                //            expiryTicks <= DateTime.UtcNow.Ticks)
+                //        {
+                //            context.RejectIdentity();
+                //        }
+
+                //        return Task.FromResult(0);
+                //    }
+                //}
             });
 
             app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
             {
                 Authority = AppSettings.Authority,
-                ClientId = "8A4E2741-A9BA-4F19-BED7-21B6CF602A6C",
-                Scope = "openid profile otars",
+                ClientId = "8A4E2741-A9BA-4F19-BED7-21B6CF602A6E",
+                Scope = "openid profile otarsft",
                 RedirectUri = AppSettings.RedirectUri,
 
                 Configuration = config,
@@ -71,37 +95,16 @@ namespace MTAoarsFamily.Web
                     IssuerSigningTokens = new[] { new X509SecurityToken(certificate) }
                 },
                 ResponseType = "id_token token",
-                SignInAsAuthenticationType = "Cookies",                
+                SignInAsAuthenticationType = "Cookies",
 
                 Notifications = new OpenIdConnectAuthenticationNotifications
                 {
-                    MessageReceived = n =>
-                    {
-                        logger.Info("Raise event : MessageReceived, RequestUri: {0}", n.Request.Uri);
-                        return Task.FromResult(0);
-                    },
-
-                    RedirectToIdentityProvider = n =>
-                    {
-                        // Every hit here means the app is challenging the user to sign in at the IdP.
-                        // A tight loop of these entries points to a login/session problem, not an environment problem.
-                        logger.Info("Raise event : RedirectToIdentityProvider, RequestType: {0}, RequestUri: {1}",
-                            n.ProtocolMessage.RequestType, n.Request.Uri);
-                        return Task.FromResult(0);
-                    },
-
-                    AuthorizationCodeReceived = n =>
-                    {
-                        logger.Info("Raise event : AuthorizationCodeReceived");
-                        return Task.FromResult(0);
-                    },
-
                     SecurityTokenValidated = n =>
                     {
                         logger.Info("Raise event : SecurityTokenValidated");
 
                         var id = n.AuthenticationTicket.Identity;
-                        
+
                         // we want to keep sub
                         var sub = id.FindFirst(Constants.ClaimTypes.Subject);
                         if (sub != null)
@@ -119,14 +122,6 @@ namespace MTAoarsFamily.Web
                                 dataProvider.Remove(GlobalConstants.CurrentIdentity);
                                 dataProvider.Register(GlobalConstants.CurrentIdentity, identity);
                             }
-                            else
-                            {
-                                logger.Warn("SSO token validated but no matching local user found for sub claim.");
-                            }
-                        }
-                        else
-                        {
-                            logger.Warn("SSO token validated but 'sub' claim is missing.");
                         }
 
                         // create new identity and set name and role claim type
@@ -139,17 +134,15 @@ namespace MTAoarsFamily.Web
                             return Task.FromResult(0);
 
                         nid.AddClaim(new Claim(Constants.ClaimTypes.Subject, sub.Value.AESDecrypt()));
+                        // Finding 1: retain the original absolute expiry when the sliding idle cookie is renewed.
+                        nid.AddClaim(new Claim(
+                            AbsoluteSessionExpiryClaimType,
+                            DateTime.UtcNow.Add(AbsoluteSessionTimeout).Ticks.ToString(CultureInfo.InvariantCulture)));
 
                         n.AuthenticationTicket = new AuthenticationTicket(
                             nid,
                             n.AuthenticationTicket.Properties);
 
-                        return Task.FromResult(0);
-                    },
-
-                    AuthenticationFailed = n =>
-                    {
-                        logger.Error(n.Exception, "Raise event : AuthenticationFailed - " + n.Exception.Message);
                         return Task.FromResult(0);
                     },
 
@@ -171,7 +164,7 @@ namespace MTAoarsFamily.Web
             using (WebResponse response = request.GetResponse())
             {
             }
-            
+
             //retrieve the ssl cert and assign it to an X509Certificate object
             X509Certificate cert = request.ServicePoint.Certificate;
 

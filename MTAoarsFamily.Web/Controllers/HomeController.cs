@@ -49,26 +49,19 @@ namespace MTAoarsFamily.Web.Controllers
                     .Select(c => c.Value)
                     .SingleOrDefault();
 
-            logger.Info("HomeController.Index: entered. CurrentUser.IsLogin: {0}, Cookie authenticated: {1}, sub present: {2}",
-                base.CurrentUser.IsLogin, user != null && user.Identity.IsAuthenticated, !string.IsNullOrEmpty(sub));
-
-            // Restore the application identity when the authentication cookie is
-            // valid but CurrentIdentity is not present in the session.
+            // Finding 1: restore an ASP.NET session only after the OWIN cookie has passed
+            // its idle and absolute-expiry validation. This keeps the existing SSO flow
+            // working after a session recycle without allowing an expired cookie to revive it.
             if (!base.CurrentUser.IsLogin && user != null &&
                 user.Identity.IsAuthenticated && !string.IsNullOrEmpty(sub))
             {
-                logger.Debug("HomeController.Index: session identity missing, attempting restore from sub claim.");
+                logger.Debug("HomeController.Index: restoring a session from a valid OWIN cookie.");
                 var identity = userService.Get(sub);
                 if (identity != null)
                 {
-                    logger.Info("HomeController.Index: identity restored from sub claim. UserID: {0}", identity.UserID);
                     var dataProvider = ObjectContainer.Container.Resolve<IScopeDataProvider>();
                     dataProvider.Remove(GlobalConstants.CurrentIdentity);
                     dataProvider.Register(GlobalConstants.CurrentIdentity, identity);
-                }
-                else
-                {
-                    logger.Warn("HomeController.Index: authenticated cookie found but no matching local user for sub claim. Possible environment/user-mapping issue.");
                 }
             }
 
@@ -77,6 +70,13 @@ namespace MTAoarsFamily.Web.Controllers
                 // If this fires repeatedly for the same client it indicates a redirect loop with the SSO provider.
                 logger.Warn("HomeController.Index: user still not logged in, redirecting to SSOUrl: {0}", config.SSOUrl);
                 return Redirect(config.SSOUrl);
+            }
+
+            if (user != null && user.Identity.IsAuthenticated)
+            {
+                if (sub == null)
+                    return Redirect(config.SSOUrl);
+
             }
 
             var model = homeService.GetModel();

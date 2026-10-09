@@ -16,5 +16,8 @@ namespace MTAoarsFamily.Web
 
         public static string SystemDateFormat { get { return ConfigurationManager.AppSettings["SystemDateFormat"]; } }
         public static string SystemDateTimeFormat { get { return ConfigurationManager.AppSettings["SystemDateTimeFormat"]; } }
+
+        public static string SSOUrl { get { return ConfigurationManager.AppSettings["SSOUrl"]; } }
+        
     }
 }
